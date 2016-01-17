@@ -50,6 +50,8 @@ process.on('SIGINT', function() {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/js',express.static(__dirname + '/public/js/'));
+app.use('/modules',express.static(__dirname + '/node_modules/'));
 
 var port = process.env.PORT || 3000;        // set our port
 
