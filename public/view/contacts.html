@@ -4,7 +4,7 @@
 <form class="form-inline" role="form">
 	<div class="form-group">
 		<label class="sr-only" for="txtsearchbox">Enter Name</label>
-		<input type="text" class="form-control" id="txtsearchbox" placeholder="Enter Name" ng-model="searchText.name">
+		<input type="text" class="form-control" id="txtsearchbox" placeholder="Enter Name" ng-model="searchText.name" ng-minlength="2">
 	</div>
 </form>
 
@@ -17,10 +17,6 @@
 			</tr>
 		</thead>
 		<tbody>
-			
-			<tr ng-show="!contacts.length">
-				<td colspan="3">No contacts</td>
-			</tr>
 			
 			<tr ng-show="contacts.length" ng-repeat="contact in contacts | filter:searchText | orderBy:orderby:reverse">
 				<td><a href="#/view-contact/{{ accessors.getId(contact) }}">{{ contact.name }}</a></td>
