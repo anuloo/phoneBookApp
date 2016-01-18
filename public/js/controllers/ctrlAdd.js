@@ -4,10 +4,9 @@ app.controller('ctrlAdd', ['$http', '$scope', '$location', function ($http, $sco
         var dataWithoutId = {
             name: $scope.contact.name,
             email: $scope.contact.email,
-            url: $scope.contact.url
+            number: $scope.contact.number
         };
         $http.post('/phonebook/posts', dataWithoutId).success(function (params) {
-            console.log('from ctrl id: ' + params._id);
             $location.path('/contacts');
         });
     };
